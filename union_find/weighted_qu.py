@@ -5,13 +5,21 @@ class unionfind:
 
     def __init__(self,l):
         self.l = l
-        self.sz = [0]*len(l)
+        self.sz = [1]*len(l)
 
 
 
     def union(self,c1,c2):
         if not self.find(c1,c2):
-            self.l[self.find_root(c1)] = self.find_root(c2)
+            if self.sz[c2]<self.sz[c1]:
+                self.l[c2] = self.find_root(c1)
+                self.sz[c1]+=self.sz[c2]
+            else:
+                self.l[c1] = self.find_root(c2)
+                self.sz[c2] += self.sz[c2]
+            return True
+        return False
+
 
     def find(self,c1,c2):
         if self.find_root(c1) == self.find_root(c2):

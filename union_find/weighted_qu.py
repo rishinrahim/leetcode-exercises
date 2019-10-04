@@ -10,13 +10,18 @@ class unionfind:
 
 
     def union(self,c1,c2):
-        if not self.find(c1,c2):
-            if self.sz[c2]<self.sz[c1]:
-                self.l[c2] = self.find_root(c1)
-                self.sz[c1]+=self.sz[c2]
+        i = self.find_root(c1)
+        j = self.find_root(c2)
+        print(i,"+",j)
+        if i != j:
+            print(self.sz[i], "*", self.sz[j])
+
+            if self.sz[i]<self.sz[j]:
+                self.l[i] = j
+                self.sz[j]+=self.sz[i]
             else:
-                self.l[c1] = self.find_root(c2)
-                self.sz[c2] += self.sz[c2]
+                self.l[j] = i
+                self.sz[i] += self.sz[j]
             return True
         return False
 
@@ -50,9 +55,12 @@ if __name__=="__main__":
     u1.union(4,3)
     u1.union(3,8)
     u1.union(6,5)
-    u1.union(9,4)
+    u1.union(6,9)
 
-    print(u1.find(8,9))
+    u1.union(6,4)
+    u1.union(2,6)
+
+    print(u1.find(4,3))
     print(u1.find(5,4))
 
 

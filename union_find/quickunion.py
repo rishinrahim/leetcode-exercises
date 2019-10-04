@@ -9,7 +9,7 @@ class unionfind:
 
     def union(self,c1,c2):
         if not self.find(c1,c2):
-            self.l[self.find_root(c1)] = self.find_root(c2)
+            self.l[self.find_root(c2)] = self.find_root(c1)
 
     def find(self,c1,c2):
         if self.find_root(c1) == self.find_root(c2):
@@ -40,10 +40,14 @@ if __name__=="__main__":
     u1.union(4,3)
     u1.union(3,8)
     u1.union(6,5)
-    u1.union(9,4)
+    u1.union(6,9)
 
-    print(u1.find(8,9))
+    u1.union(6,4)
+    u1.union(2,6)
+
+    print(u1.find(4,3))
     print(u1.find(5,4))
+
 
 
 

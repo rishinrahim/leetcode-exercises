@@ -1,6 +1,6 @@
 # algorithm-python
 
-Data structures and Algorithms in Python
+## Data structures and Algorithms in Python
 
 Learning to unlearn. Going back to the basics, one algorithm at a time with implementation in python. 
 
